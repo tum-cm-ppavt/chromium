@@ -950,6 +950,7 @@ void HttpServerProperties::SetAlternativeServicesInternal(
     const url::SchemeHostPort& origin,
     const NetworkAnonymizationKey& network_anonymization_key,
     const AlternativeServiceInfoVector& alternative_service_info_vector) {
+      fprintf(stderr, "set alternative service for origin: %s:%u\n", origin.host().c_str(), origin.port());
   DCHECK_CALLED_ON_VALID_THREAD(thread_checker_);
   DCHECK_NE(origin.scheme(), url::kWsScheme);
   DCHECK_NE(origin.scheme(), url::kWssScheme);
