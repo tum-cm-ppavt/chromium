@@ -950,7 +950,11 @@ void HttpServerProperties::SetAlternativeServicesInternal(
     const url::SchemeHostPort& origin,
     const NetworkAnonymizationKey& network_anonymization_key,
     const AlternativeServiceInfoVector& alternative_service_info_vector) {
-      fprintf(stderr, "set alternative service for origin: %s:%u\n", origin.host().c_str(), origin.port());
+      /*fprintf(stderr, "Set alternative service for origin: %s://%s:%u\n", origin.scheme().c_str(), origin.host().c_str(), origin.port());
+      for (const auto& alternative_service_info : alternative_service_info_vector) {
+        fprintf(stderr, "  Alt-Svc: %s\n",
+                alternative_service_info.ToString().c_str());
+      }*/
   DCHECK_CALLED_ON_VALID_THREAD(thread_checker_);
   DCHECK_NE(origin.scheme(), url::kWsScheme);
   DCHECK_NE(origin.scheme(), url::kWssScheme);
